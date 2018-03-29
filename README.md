@@ -45,9 +45,9 @@ The following methods are available on a `SemVer` object:
 
 * `toString` - returns the semantic versioning 2.0.0 string
 * `compare` - compares the precedence to the supplied SemVer
-* `nextPatch` - returns a new SemVer with an incremented `patch` version number
-* `nextMinor` - returns a new SemVer with an incremented `minor` and a reset (0) `patch` version number
-* `nextMajor` - returns a new SemVer with an incremented `major` and reset (0) `minor` and `patch` version numbers
+* `nextPatch`/`bumpPatch` - returns a new SemVer with an incremented `patch` version number
+* `nextMinor`/`bumpMinor` - returns a new SemVer with an incremented `minor` and a reset (0) `patch` version number
+* `nextMajor`/`bumpMajor` - returns a new SemVer with an incremented `major` and reset (0) `minor` and `patch` version numbers
 * `withMajor` - returns a new SemVer with the supplied `major` version number
 * `withMinor` - returns a new SemVer with the supplied `minor` version number
 * `withPatch` - returns a new SemVer with the supplied `patch` version number
