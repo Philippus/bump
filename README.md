@@ -10,7 +10,7 @@ specification. It supports validation, precedence comparison, and increasing ver
 
 A `SemVer` object representing the version can be created by supplying arguments for the `version`, `preRelease` and
 `buildMetaData` parts to the constructor or by supplying a string which will be parsed by the `SemVerParser` using
-[parser combinators](https://github.com/scala/scala-parser-combinators):
+[parser combinators](https://github.com/scala/scala-parser-combinators).
 
 ## Installation
 
