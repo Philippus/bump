@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/Philippus/bump.svg?branch=master)](https://travis-ci.org/Philippus/bump)
 [![codecov](https://codecov.io/gh/Philippus/bump/branch/master/graph/badge.svg)](https://codecov.io/gh/Philippus/bump)
-![Current Version](https://img.shields.io/badge/version-0.3.0-brightgreen.svg?style=flat "0.1.0")
+![Current Version](https://img.shields.io/badge/version-0.1.0-brightgreen.svg?style=flat "0.1.0")
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat "MIT")](LICENSE.md)
 
 Bump is a library for working with semantic versioning following the [Semantic Versioning 2.0.0](https://semver.org/)
