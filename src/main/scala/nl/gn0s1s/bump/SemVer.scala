@@ -9,18 +9,10 @@ case class SemVer(major: Int, minor: Int, patch: Int, preRelease: Option[String]
   require(patch >= 0)
 
   // https://semver.org/#spec-item-9
-  require(preRelease.isEmpty ||
-    preRelease.exists(_ match {
-      case SemVerParser.preReleaseRegex(_*) => true
-      case _ => false
-    }))
+  require(preRelease.forall(SemVerParser.validPreRelease))
 
   // https://semver.org/#spec-item-10
-  require(buildMetadata.isEmpty ||
-    buildMetadata.exists(_ match {
-      case SemVerParser.buildMetadataRegex(_*) => true
-      case _ => false
-    }))
+  require(buildMetadata.forall(SemVerParser.validBuildMetadata))
 
   override def toString: String =
     s"${major}.${minor}.${patch}" + preRelease.map("-" + _).getOrElse("") + buildMetadata.map("+" + _).getOrElse("")

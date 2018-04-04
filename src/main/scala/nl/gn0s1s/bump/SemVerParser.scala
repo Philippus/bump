@@ -4,10 +4,6 @@ import scala.util.matching.Regex
 import scala.util.parsing.combinator.RegexParsers
 
 object SemVerParser extends RegexParsers {
-  val preReleaseRegex: Regex = """((((\d*[A-Za-z-][\dA-Za-z-]*)+)|0|[1-9]\d*)\.)*(((\d*[A-Za-z-][\dA-Za-z-]*)+)|0|[1-9]\d*)""".r
-
-  val buildMetadataRegex: Regex = """(([\dA-Za-z-])+\.)*([\dA-Za-z-])+""".r
-
   private val number = """0|[1-9]\d*""".r ^^ { _.toInt }
 
   private val dot = "."
@@ -37,4 +33,10 @@ object SemVerParser extends RegexParsers {
 
     parse[SemVer](phrase(parser), input)
   }
+
+  def validPreRelease(input: String): Boolean =
+    parse(phrase(preReleaseParser), input).successful
+
+  def validBuildMetadata(input: String): Boolean =
+    parse(phrase(buildMetadataParser), input).successful
 }
