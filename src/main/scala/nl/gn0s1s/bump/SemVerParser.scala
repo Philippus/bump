@@ -3,29 +3,26 @@ package nl.gn0s1s.bump
 import scala.util.matching.Regex
 import scala.util.parsing.combinator.RegexParsers
 
-sealed trait Separator
-case object DOT extends Separator
-case object HYPHEN extends Separator
-case object PLUS extends Separator
-
 object SemVerParser extends RegexParsers {
-  val numberRegex: Regex = """(0|[1-9]\d*)""".r
+  private val number = """0|[1-9]\d*""".r ^^ { _.toInt }
 
-  val preReleaseRegex: Regex = """((((\d*[A-Za-z-][\dA-Za-z-]*)+)|0|[1-9]\d*)\.)*(((\d*[A-Za-z-][\dA-Za-z-]*)+)|0|[1-9]\d*)""".r
+  private val dot = "."
 
-  val buildMetadataRegex: Regex = """(([\dA-Za-z-])+\.)*([\dA-Za-z-])+""".r
-
-  private def dot = "." ^^ (_ => DOT)
-  private def hyphen = "-" ^^ (_ => HYPHEN)
-  private def plus = "+" ^^ (_ => PLUS)
-  private def number = numberRegex ^^ { _.toInt }
-
-  private def versionPart: Parser[SemVer] = number ~ dot ~ number ~ dot ~ number ^^ {
+  private val versionPart: Parser[SemVer] = number ~ dot ~ number ~ dot ~ number ^^ {
     case major ~ _ ~ minor ~ _ ~ patch =>
       SemVer(major, minor, patch)
   }
-  private def preReleasePart: Parser[String] = hyphen ~ preReleaseRegex ^^ { case _ ~ preRelease => preRelease.toString }
-  private def buildMetadataPart: Parser[String] = plus ~ buildMetadataRegex ^^ { case _ ~ buildMetadata => buildMetadata.toString }
+
+  private val hyphen = "-"
+  private val atLeastOneNonDigit: Regex = """(\d*[A-Za-z-][\dA-Za-z-]*)+""".r
+  private val preReleaseIdentifier = (atLeastOneNonDigit | number) ^^ { _.toString }
+  private val preReleaseParser = repsep(preReleaseIdentifier, dot) ^^ { _.mkString(dot) }
+  private val preReleasePart = hyphen ~ preReleaseParser ^^ { case _ ~ preRelease => preRelease }
+
+  private val plus = "+"
+  private val buildMetadataIdentifier = """([\dA-Za-z-])+""".r ^^ { _.toString }
+  private val buildMetadataParser = repsep(buildMetadataIdentifier, dot) ^^ { _.mkString(dot) }
+  private val buildMetadataPart = plus ~ buildMetadataParser ^^ { case _ ~ buildMetadata => buildMetadata }
 
   def parse(input: String): ParseResult[SemVer] = {
     val parser: Parser[SemVer] =
@@ -36,4 +33,10 @@ object SemVerParser extends RegexParsers {
 
     parse[SemVer](phrase(parser), input)
   }
+
+  def validPreRelease(input: String): Boolean =
+    parse(phrase(preReleaseParser), input).successful
+
+  def validBuildMetadata(input: String): Boolean =
+    parse(phrase(buildMetadataParser), input).successful
 }
