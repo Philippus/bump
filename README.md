@@ -48,6 +48,7 @@ The following methods are available on a `SemVer` object:
 * `nextMajor`/`bumpMajor` - returns a new SemVer with an incremented `major` and reset (0) `minor` and `patch` version numbers
 * `nextMinor`/`bumpMinor` - returns a new SemVer with an incremented `minor` and a reset (0) `patch` version number
 * `nextPatch`/`bumpPatch` - returns a new SemVer with an incremented `patch` version number
+* `nextStable` - returns a new SemVer without pre-release information or an incremented `patch` version number
 * `withMajor` - returns a new SemVer with the supplied `major` version number
 * `withMinor` - returns a new SemVer with the supplied `minor` version number
 * `withPatch` - returns a new SemVer with the supplied `patch` version number

@@ -32,6 +32,12 @@ case class SemVer(major: Int, minor: Int, patch: Int, preRelease: Option[String]
   def nextMajor: SemVer = this.withMajor(major + 1).withMinor(0).withPatch(0)
   def bumpMajor: SemVer = nextMajor
 
+  def nextStable: SemVer =
+    if (this.preRelease.nonEmpty)
+      this.withoutPreRelease
+    else
+      this.nextPatch
+
   def withMajor(major: Int): SemVer = this.copy(major = major)
 
   def withMinor(minor: Int): SemVer = this.copy(minor = minor)
