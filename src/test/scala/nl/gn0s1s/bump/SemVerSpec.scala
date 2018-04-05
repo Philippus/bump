@@ -37,18 +37,14 @@ object SemVerSpec extends Properties("SemVer") {
     SemVer(1, 1, 1).nextMajor == SemVer(2, 0, 0)
   }
 
-  property("nextMinor/bumpMinor increases major and resets patch") = {
-    SemVer(1, 1, 1).nextMinor == SemVer(1, 2, 0)
-  }
-
-  property("nextPatch/bumpPatch increases patch") = {
-    SemVer(1, 1, 1).nextPatch == SemVer(1, 1, 2)
-  }
-
   property("nextMajor/bumpMajor has higher precedence than the original") = {
     precedenceList.map(SemVer(_)).forall { elem =>
       elem.exists(semVer => semVer.bumpMajor > semVer)
     }
+  }
+
+  property("nextMinor/bumpMinor increases major and resets patch") = {
+    SemVer(1, 1, 1).nextMinor == SemVer(1, 2, 0)
   }
 
   property("nextMinor/bumpMinor has higher precedence than the original") = {
@@ -57,9 +53,27 @@ object SemVerSpec extends Properties("SemVer") {
     }
   }
 
+  property("nextPatch/bumpPatch increases patch") = {
+    SemVer(1, 1, 1).nextPatch == SemVer(1, 1, 2)
+  }
+
   property("nextPatch/bumpPatch has higher precedence than the original") = {
     precedenceList.map(SemVer(_)).forall { elem =>
       elem.exists(semVer => semVer.bumpPatch > semVer)
+    }
+  }
+
+  property("nextStable removes pre-release information if available") = {
+    SemVer(1, 1, 1, Some("alpha")).nextStable == SemVer(1, 1, 1)
+  }
+
+  property("nextStable increases patch if no pre-release information is available") = {
+    SemVer(1, 1, 1).nextStable == SemVer(1, 1, 2)
+  }
+
+  property("nextStable has higher precedence than the original") = {
+    precedenceList.map(SemVer(_)).forall { elem =>
+      elem.exists(semVer => semVer.nextStable > semVer)
     }
   }
 
