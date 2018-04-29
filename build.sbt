@@ -13,7 +13,7 @@ bintrayRepository := "releases"
 
 libraryDependencies ++= Seq(
   "org.scala-lang.modules" %% "scala-parser-combinators" % "1.1.0",
-  "org.scalacheck" %% "scalacheck" % "1.13.5" % Test
+  "org.scalacheck" %% "scalacheck" % "1.14.0" % Test
 )
 
 pomExtra :=
