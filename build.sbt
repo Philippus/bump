@@ -5,7 +5,7 @@ startYear := Some(2018)
 homepage := Some(url("https://github.com/philippus/bump"))
 licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
 
-crossScalaVersions := List("2.11.12", "2.12.7", "2.13.0-M4")
+crossScalaVersions := List("2.11.12", "2.12.7", "2.13.0-M5")
 scalaVersion := "2.12.7"
 
 bintrayOrganization := Some("gn0s1s")
