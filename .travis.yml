@@ -3,13 +3,12 @@ sudo: false
 scala:
    - 2.11.12
    - 2.12.7
-   - 2.13.0-M4
 
 jdk:
    - oraclejdk8
 
 script:
-  - sbt clean coverage test coverageReport
+  - sbt ++$TRAVIS_SCALA_VERSION clean coverage test coverageReport
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
