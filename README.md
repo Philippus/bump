@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/Philippus/bump.svg?branch=master)](https://travis-ci.org/Philippus/bump)
 [![codecov](https://codecov.io/gh/Philippus/bump/branch/master/graph/badge.svg)](https://codecov.io/gh/Philippus/bump)
-![Current Version](https://img.shields.io/badge/version-0.1.0-brightgreen.svg?style=flat "0.1.0")
+![Current Version](https://img.shields.io/badge/version-0.1.1-brightgreen.svg?style=flat "0.1.1")
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat "MIT")](LICENSE.md)
 
 Bump is a library for working with semantic versioning following the [Semantic Versioning 2.0.0](https://semver.org/)
@@ -14,12 +14,12 @@ A `SemVer` object representing the version can be created by supplying arguments
 
 ## Installation
 
-Bump is published for Scala 2.11 and 2.12. To start using it add the following to your `build.sbt`:
+Bump is published for Scala 2.11, 2.12, and 2.13.0-M5. To start using it add the following to your `build.sbt`:
 
 ```
 resolvers += Resolver.bintrayRepo("gn0s1s", "releases")
 
-libraryDependencies += "nl.gn0s1s" %% "bump" % "0.1.0"
+libraryDependencies += "nl.gn0s1s" %% "bump" % "0.1.1"
 ```
 
 ## Example usage
