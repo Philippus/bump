@@ -1,6 +1,6 @@
 name := "bump"
 organization := "nl.gn0s1s"
-version := "0.1.1"
+version := "0.1.2"
 startYear := Some(2018)
 homepage := Some(url("https://github.com/philippus/bump"))
 licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
