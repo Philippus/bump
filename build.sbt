@@ -5,14 +5,15 @@ startYear := Some(2018)
 homepage := Some(url("https://github.com/philippus/bump"))
 licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
 
-crossScalaVersions := List("2.11.12", "2.12.8", "2.13.0-M5")
+crossScalaVersions := List("2.11.12", "2.12.8", "2.13.0-RC1")
 scalaVersion := "2.12.8"
-
 bintrayOrganization := Some("gn0s1s")
 bintrayRepository := "releases"
 
+fork in Test := scalaVersion.value.startsWith("2.11.") // https://github.com/scala/scala-parser-combinators/issues/197
+
 libraryDependencies ++= Seq(
-  "org.scala-lang.modules" %% "scala-parser-combinators" % "1.1.1",
+  "org.scala-lang.modules" %% "scala-parser-combinators" % "1.1.2",
   "org.scalacheck" %% "scalacheck" % "1.14.0" % Test
 )
 
