@@ -14,7 +14,7 @@ fork in Test := scalaVersion.value.startsWith("2.11.") // https://github.com/sca
 
 libraryDependencies ++= Seq(
   "org.scala-lang.modules" %% "scala-parser-combinators" % "1.1.2",
-  "org.scalacheck" %% "scalacheck" % "1.14.1" % Test
+  "org.scalacheck" %% "scalacheck" % "1.14.2" % Test
 )
 
 pomExtra :=
