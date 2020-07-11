@@ -1,6 +1,6 @@
 # Bump - Semantic Versioning
 
-[![Build Status](https://travis-ci.org/Philippus/bump.svg?branch=master)](https://travis-ci.org/Philippus/bump)
+![build](https://github.com/Philippus/between/workflows/build/badge.svg)
 [![codecov](https://codecov.io/gh/Philippus/bump/branch/master/graph/badge.svg)](https://codecov.io/gh/Philippus/bump)
 ![Current Version](https://img.shields.io/badge/version-0.1.3-brightgreen.svg?style=flat "0.1.3")
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat "MIT")](LICENSE.md)
