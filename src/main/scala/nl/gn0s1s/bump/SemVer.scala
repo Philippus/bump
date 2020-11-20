@@ -94,8 +94,8 @@ object SemVer {
       }
     }
 
-    (l.preRelease, r.preRelease) match {
-      case (l, r) if l == r => 0
+    ((l.preRelease, r.preRelease): (Option[String], Option[String]) @unchecked) match {
+      case (Some(l), Some(r)) if l == r => 0
       case (Some(l), Some(r)) => compareValues(l.split('.').toList, r.split('.').toList)
       case (Some(_), None) => -1
       case (None, Some(_)) => 1
