@@ -13,7 +13,7 @@ bintrayRepository := "releases"
 fork in Test := scalaVersion.value.startsWith("2.11.") // https://github.com/scala/scala-parser-combinators/issues/197
 
 libraryDependencies ++= Seq(
-  "org.scala-lang.modules" %% "scala-parser-combinators" % "1.1.2",
+  "org.scala-lang.modules" %% "scala-parser-combinators" % "2.0.0",
   "org.scalacheck" %% "scalacheck" % "1.15.2" % Test
 )
 
