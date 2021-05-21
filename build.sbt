@@ -13,7 +13,7 @@ developers := List(
   )
 )
 
-crossScalaVersions := List("2.11.12", "2.12.12", "2.13.6")
+crossScalaVersions := List("2.11.12", "2.12.13", "2.13.6")
 scalaVersion := crossScalaVersions.value.last
 
 fork in Test := scalaVersion.value.startsWith("2.11.") // https://github.com/scala/scala-parser-combinators/issues/197
