@@ -1,6 +1,6 @@
 # Bump - Semantic Versioning
 
-![build](https://github.com/Philippus/between/workflows/build/badge.svg)
+[![build](https://github.com/Philippus/bump/workflows/build/badge.svg)](https://github.com/Philippus/bump/actions/workflows/scala.yml?query=workflow%3Abuild+branch%3Amain)
 [![codecov](https://codecov.io/gh/Philippus/bump/branch/master/graph/badge.svg)](https://codecov.io/gh/Philippus/bump)
 ![Current Version](https://img.shields.io/badge/version-0.1.3-brightgreen.svg?style=flat "0.1.3")
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat "MIT")](LICENSE.md)
