@@ -5,10 +5,25 @@ import org.scalacheck.Prop._
 
 object SemVerSpec extends Properties("SemVer") {
   val sortedVersions = List(
-    "1.0.0-alpha", "1.0.0-alpha.1", "1.0.0-alpha.2", "1.0.0-alpha.beta", "1.0.0-beta",
-    "1.0.0-beta.2", "1.0.0-beta.11", "1.0.0-rc.1", "1.0.0-rc.2", "1.0.0",
-    "2.0.0", "2.1.0", "2.1.1", "2.1.2-alpha1+342", "2.1.2-alpha2",
-    "2.1.3-0.1", "2.1.3-0.2", "2.1.4+8383")
+    "1.0.0-alpha",
+    "1.0.0-alpha.1",
+    "1.0.0-alpha.2",
+    "1.0.0-alpha.beta",
+    "1.0.0-beta",
+    "1.0.0-beta.2",
+    "1.0.0-beta.11",
+    "1.0.0-rc.1",
+    "1.0.0-rc.2",
+    "1.0.0",
+    "2.0.0",
+    "2.1.0",
+    "2.1.1",
+    "2.1.2-alpha1+342",
+    "2.1.2-alpha2",
+    "2.1.3-0.1",
+    "2.1.3-0.2",
+    "2.1.4+8383"
+  )
 
   property("calculates version precedence properly") = {
     val zipped = sortedVersions.zip(sortedVersions.tail)
