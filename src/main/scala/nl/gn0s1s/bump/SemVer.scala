@@ -2,8 +2,13 @@ package nl.gn0s1s.bump
 
 import scala.annotation.tailrec
 
-case class SemVer(major: Int, minor: Int, patch: Int, preRelease: Option[String] = None, buildMetadata: Option[String] = None)
-  extends Ordered[SemVer] {
+case class SemVer(
+    major: Int,
+    minor: Int,
+    patch: Int,
+    preRelease: Option[String] = None,
+    buildMetadata: Option[String] = None
+) extends Ordered[SemVer] {
   require(major >= 0)
   require(minor >= 0)
   require(patch >= 0)

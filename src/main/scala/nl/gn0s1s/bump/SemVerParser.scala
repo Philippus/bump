@@ -26,9 +26,8 @@ object SemVerParser extends RegexParsers {
 
   def parse(input: String): ParseResult[SemVer] = {
     val parser: Parser[SemVer] =
-      versionPart ~ preReleasePart.? ~ buildMetadataPart.? ^^ {
-        case semVer ~ preReleaseOption ~ buildMetadataOption =>
-          semVer.copy(preRelease = preReleaseOption, buildMetadata = buildMetadataOption)
+      versionPart ~ preReleasePart.? ~ buildMetadataPart.? ^^ { case semVer ~ preReleaseOption ~ buildMetadataOption =>
+        semVer.copy(preRelease = preReleaseOption, buildMetadata = buildMetadataOption)
       }
 
     parse[SemVer](phrase(parser), input)
