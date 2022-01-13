@@ -18,7 +18,7 @@ ThisBuild / versionPolicyIntention := Compatibility.BinaryCompatible
 
 Compile / packageBin / packageOptions += Package.ManifestAttributes("Automatic-Module-Name" -> "nl.gn0s1s.bump")
 
-crossScalaVersions := List("2.13.7")
+crossScalaVersions := List("2.13.8")
 scalaVersion := crossScalaVersions.value.last
 
 libraryDependencies ++= Seq(
