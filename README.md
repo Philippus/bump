@@ -17,8 +17,6 @@ A `SemVer` object representing the version can be created by supplying arguments
 Bump is published for Scala 2.11, 2.12, and 2.13. To start using it add the following to your `build.sbt`:
 
 ```
-resolvers += Resolver.bintrayRepo("gn0s1s", "releases")
-
 libraryDependencies += "nl.gn0s1s" %% "bump" % "0.1.3"
 ```
 
