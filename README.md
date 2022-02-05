@@ -14,7 +14,7 @@ A `SemVer` object representing the version can be created by supplying arguments
 
 ## Installation
 
-Bump is published for Scala 2.11, 2.12, and 2.13. To start using it add the following to your `build.sbt`:
+Bump is published for Scala 2.13. To start using it add the following to your `build.sbt`:
 
 ```
 libraryDependencies += "nl.gn0s1s" %% "bump" % "0.1.3"
