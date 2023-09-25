@@ -76,34 +76,34 @@ object SemVer {
     @tailrec def compareBytes(l: Array[Byte], r: Array[Byte]): Int = {
       (l, r) match {
         case (l, r) if l.isEmpty & r.isEmpty => 0
-        case (l, r) if l.isEmpty => -1
-        case (l, r) if r.isEmpty => 1
-        case (l, r) if l.head < r.head => -1
-        case (l, r) if l.head > r.head => 1
-        case (l, r) => compareBytes(l.tail, r.tail)
+        case (l, r) if l.isEmpty             => -1
+        case (l, r) if r.isEmpty             => 1
+        case (l, r) if l.head < r.head       => -1
+        case (l, r) if l.head > r.head       => 1
+        case (l, r)                          => compareBytes(l.tail, r.tail)
       }
     }
 
     @tailrec def compareValues(l: List[String], r: List[String]): Int = {
       (l, r) match {
-        case (l, r) if l == r => 0
-        case (l, r) if l.isEmpty => -1
-        case (l, r) if r.isEmpty => 1
-        case (l, r) if l.head == r.head => compareValues(l.tail, r.tail)
+        case (l, r) if l == r                                               => 0
+        case (l, r) if l.isEmpty                                            => -1
+        case (l, r) if r.isEmpty                                            => 1
+        case (l, r) if l.head == r.head                                     => compareValues(l.tail, r.tail)
         case (l, r) if l.head.forall(_.isDigit) && r.head.forall(_.isDigit) =>
           if (l.head.toInt < r.head.toInt) -1 else 1
-        case (l, r) if l.head.forall(_.isDigit) => -1
-        case (l, r) if r.head.forall(_.isDigit) => 1
-        case (l, r) =>
+        case (l, r) if l.head.forall(_.isDigit)                             => -1
+        case (l, r) if r.head.forall(_.isDigit)                             => 1
+        case (l, r)                                                         =>
           compareBytes(l.head.getBytes, r.head.getBytes)
       }
     }
 
     ((l.preRelease, r.preRelease): (Option[String], Option[String]) @unchecked) match {
       case (Some(l), Some(r)) if l == r => 0
-      case (Some(l), Some(r)) => compareValues(l.split('.').toList, r.split('.').toList)
-      case (Some(_), None) => -1
-      case (None, Some(_)) => 1
+      case (Some(l), Some(r))           => compareValues(l.split('.').toList, r.split('.').toList)
+      case (Some(_), None)              => -1
+      case (None, Some(_))              => 1
     }
   }
 }
