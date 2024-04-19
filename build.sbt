@@ -22,6 +22,6 @@ crossScalaVersions := List("2.13.13")
 scalaVersion       := crossScalaVersions.value.last
 
 libraryDependencies ++= Seq(
-  "org.scala-lang.modules" %% "scala-parser-combinators" % "2.3.0",
+  "org.scala-lang.modules" %% "scala-parser-combinators" % "2.4.0",
   "org.scalacheck"         %% "scalacheck"               % "1.17.1" % Test
 )
